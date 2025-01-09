@@ -1,0 +1,31 @@
+[package]
+name = "TankLevelController_Unsafe_Rust"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[build-dependencies]
+cc = "1.0"
+
+[dependencies]
+
+# No standard library
+[profile.dev]
+panic = "abort"
+lto = true
+debug = 2
+debug-assertions=true
+opt-level = 0
+inline = "none"
+
+[profile.release]
+panic = "abort"
+lto = true
+debug = 2
+debug-assertions=true
+opt-level = 0
+inline = "none"
+
+
+[build]
+target = "riscv32i-unknown-none-elf"
